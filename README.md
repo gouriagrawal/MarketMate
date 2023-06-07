@@ -1,16 +1,11 @@
-# kriti
+# MarketMate
 
-A new Flutter project.
+MarketMate is a user friendly “Campus Catalogue application” that allows campus residents to browse menus, place orders from local restaurants available, send files beforehand to available stationaries and easily access up-to-date information about shops and services within the campus. It also allows shops and services to update their information in real-time, ensuring that the information displayed is always accurate and up-to-date.
 
-## Getting Started
+## Table of Contents
 
-This project is a starting point for a Flutter application.
+ Markup : * Introduction
+          * Technologies
+          * Features with screenshots
+          * Launch
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
