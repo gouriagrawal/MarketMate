@@ -23,6 +23,7 @@ MarketMate is a user friendly “Campus Catalogue application” that allows cam
 
 <img src="https://github.com/mit-riya/kriti/assets/95142933/a05ec20e-ec95-481c-875a-f3d8bf416cc0" width="200" height="400">
 <img src="https://github.com/mit-riya/kriti/assets/95142933/0b2d1d56-099d-4263-b522-8db336475418" width="200" height="400">
+
 Two separate login options for students and shopkeepers.
   
 ### Displaying orders and edit menu options
@@ -40,6 +41,7 @@ Home screen on logging in as shopkeeper shows all orders received and also has o
 <img src="https://github.com/mit-riya/kriti/assets/95142933/892d37da-502d-4aad-9ebb-2d46d676764a" width="200" height="400">
 <img src="https://github.com/mit-riya/kriti/assets/95142933/941bb0cf-547f-4b11-a0cb-a550557dfeae" width="200" height="400">
 <img src="https://github.com/mit-riya/kriti/assets/95142933/a40d3e92-8ec1-4580-bdee-393ae79ac285" width="200" height="400">
+
 Used the Razorpay API for making a secure payment portal and unique qr generation for each order.
 
 ## Launch
