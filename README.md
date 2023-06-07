@@ -12,3 +12,16 @@ MarketMate is a user friendly “Campus Catalogue application” that allows cam
 
 ## Technologies
 
+  * Flutter
+  * Firebase
+      * Firebase Authentication
+      * Cloud Firestore
+
+## Features
+
+### Login and shop registration
+![Screenshot_20230607_170145](https://github.com/mit-riya/kriti/assets/95142933/90500ca4-4cb1-484b-97a6-fd24b3a2fa87)
+![Screenshot_20230607_170325](https://github.com/mit-riya/kriti/assets/95142933/398732a4-1f33-4961-8c9d-4e0101a03a66)
+  * Two separate login options for students and shopkeepers
+  
+### DIsplaying orders and edit menu options
