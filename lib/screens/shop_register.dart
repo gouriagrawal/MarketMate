@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:kriti/screens/home_shopkeeper.dart';
 
 String email="";
-class register_shop extends StatefulWidget {
-  const register_shop({Key? key}) : super(key: key);
+class RegisterShop extends StatefulWidget {
+  const RegisterShop({Key? key}) : super(key: key);
   static String id="shop_register";
   @override
-  State<register_shop> createState() => _registerState();
+  State<RegisterShop> createState() => _registerState();
 }
 
-class _registerState extends State<register_shop> {
+class _registerState extends State<RegisterShop> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,7 +162,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
                     );
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => home_shop(text:email)),
+                      MaterialPageRoute(builder: (context) => HomeShop(text:email)),
                     );
                   },
                   child: Text('Submit'),

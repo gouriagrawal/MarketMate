@@ -4,13 +4,13 @@ import 'package:kriti/screens/essentials.dart';
 import 'package:kriti/screens/shop_menu.dart';
 import 'package:kriti/screens/stationaries.dart';
 
-class restaurants extends StatefulWidget {
-  const restaurants({Key? key}) : super(key: key);
+class Restaurants extends StatefulWidget {
+  const Restaurants({Key? key}) : super(key: key);
   @override
-  State<restaurants> createState() => _restaurantsState();
+  State<Restaurants> createState() => _restaurantsState();
 }
 
-class _restaurantsState extends State<restaurants> {
+class _restaurantsState extends State<Restaurants> {
   int _selectedIndex=0;
   final _firestore = FirebaseFirestore.instance;
   late String shop_name;
@@ -22,19 +22,19 @@ class _restaurantsState extends State<restaurants> {
       if(index==0){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => restaurants()),
+          MaterialPageRoute(builder: (context) => Restaurants()),
         );
       }
       if(index==1){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => stationaries()),
+          MaterialPageRoute(builder: (context) => Stationaries()),
         );
       }
       if(index==2){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => essentials()),
+          MaterialPageRoute(builder: (context) => Essentials()),
         );
       }
     });

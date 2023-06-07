@@ -6,15 +6,16 @@ import 'edit_menu.dart';
 final _firestore = FirebaseFirestore.instance;
 late User loggedInUser;
 String email="";
-class home_shop extends StatefulWidget {
+
+class HomeShop extends StatefulWidget {
   final String text;
-  home_shop({Key? key,required this.text}) : super(key: key);
+  HomeShop({Key? key,required this.text}) : super(key: key);
   static String id="shop_menu";
   @override
-  State<home_shop> createState() => _menuState();
+  State<HomeShop> createState() => _menuState();
 }
 
-class _menuState extends State<home_shop> {
+class _menuState extends State<HomeShop> {
   final messageTextController = TextEditingController();
   final _auth = FirebaseAuth.instance;
 
@@ -96,7 +97,7 @@ class MessagesStream extends StatelessWidget {
                   onPressed: () async {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => edit_menu()),
+                      MaterialPageRoute(builder: (context) => EditMenu()),
                     );
                   },
                   child: Text('Edit menu')

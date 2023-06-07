@@ -1,20 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:kriti/screens/home_shopkeeper.dart';
 import 'package:kriti/screens/login_sreen.dart';
 
-final _firestore = FirebaseFirestore.instance;
 late User loggedInUser;
 
-class edit_menu extends StatefulWidget {
-  const edit_menu({Key? key}) : super(key: key);
+class EditMenu extends StatefulWidget {
+  const EditMenu({Key? key}) : super(key: key);
 
   @override
-  State<edit_menu> createState() => _edit_menuState();
+  State<EditMenu> createState() => _edit_menuState();
 }
 
-class _edit_menuState extends State<edit_menu> {
+class _edit_menuState extends State<EditMenu> {
   final messageTextController = TextEditingController();
   final _auth = FirebaseAuth.instance;
 

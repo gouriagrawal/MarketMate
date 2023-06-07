@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:kriti/screens/restaurants.dart';
 import 'package:kriti/screens/stationaries.dart';
-import 'package:url_launcher/url_launcher.dart'; //flutter pub add url_launcher
-class essentials extends StatefulWidget {
-  const essentials({Key? key}) : super(key: key);
+import 'package:url_launcher/url_launcher.dart';
+
+class Essentials extends StatefulWidget {
+  const Essentials({Key? key}) : super(key: key);
 
   @override
-  State<essentials> createState() => _essentialsState();
+  State<Essentials> createState() => _essentialsState();
 }
 
-class _essentialsState extends State<essentials> {
+class _essentialsState extends State<Essentials> {
   int _selectedIndex=2;
   void _onItemTapped(int index) {
     setState(() {
@@ -17,19 +18,19 @@ class _essentialsState extends State<essentials> {
       if(index==0){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => restaurants()),
+          MaterialPageRoute(builder: (context) => Restaurants()),
         );
       }
       if(index==1){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => stationaries()),
+          MaterialPageRoute(builder: (context) => Stationaries()),
         );
       }
       if(index==2){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => essentials()),
+          MaterialPageRoute(builder: (context) => Essentials()),
         );
       }
     });

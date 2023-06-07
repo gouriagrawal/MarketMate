@@ -13,7 +13,6 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    num count=0;
     num total=0;
     for (var k in (widget.item).values) {
       total=total+k;
@@ -82,7 +81,7 @@ class _CartScreenState extends State<CartScreen> {
               (widget.item).clear();
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => payment(total: total)),
+                MaterialPageRoute(builder: (context) => Payment(total: total)),
               );
             },
             child: Text("Place Order"),

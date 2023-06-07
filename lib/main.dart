@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
         WelcomeScreen.id: (context)=> WelcomeScreen(),
         LoginScreen.id: (context)=> LoginScreen(),
         RegistrationScreen.id: (context)=> RegistrationScreen(),
-        register_shop.id:(context)=>register_shop(),
+        RegisterShop.id:(context)=>RegisterShop(),
       },
     );
   }

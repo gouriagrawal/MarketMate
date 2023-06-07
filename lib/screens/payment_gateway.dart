@@ -2,21 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'qr_pg.dart';
 
-// void main() {
-//   runApp(
-//       MaterialApp( home: payment(title: 'Payment for Order', total: 100) )
-//   );
-// }
 
-class payment extends StatefulWidget {
-  const payment({super.key, required this.total});
+class Payment extends StatefulWidget {
+  const Payment({super.key, required this.total});
   final num total;
 
   @override
-  State<payment> createState() => _paymentState();
+  State<Payment> createState() => _paymentState();
 }
 
-class _paymentState extends State<payment> {
+class _paymentState extends State<Payment> {
   int _counter = 0;
 
   void _incrementCounter() {

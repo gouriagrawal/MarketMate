@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (user != null) {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => restaurants()),
+                          MaterialPageRoute(builder: (context) => Restaurants()),
                         );
                       }
                     }catch(e){
@@ -135,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (user != null) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => home_shop(text: email)),
+                            MaterialPageRoute(builder: (context) => HomeShop(text: email)),
                           );
                       }
                     }catch(e){

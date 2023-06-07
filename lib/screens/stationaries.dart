@@ -6,14 +6,14 @@ import 'package:kriti/stationary_screens/shop_4.dart';
 import '../stationary_screens/shop_1.dart';
 import 'essentials.dart';
 
-class stationaries extends StatefulWidget {
-  const stationaries({Key? key}) : super(key: key);
+class Stationaries extends StatefulWidget {
+  const Stationaries({Key? key}) : super(key: key);
 
   @override
-  State<stationaries> createState() => _stationariesState();
+  State<Stationaries> createState() => _stationariesState();
 }
 
-class _stationariesState extends State<stationaries> {
+class _stationariesState extends State<Stationaries> {
   int _selectedIndex=1;
   void _onItemTapped(int index) {
     setState(() {
@@ -21,19 +21,19 @@ class _stationariesState extends State<stationaries> {
       if(index==0){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => restaurants()),
+          MaterialPageRoute(builder: (context) => Restaurants()),
         );
       }
       if(index==1){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => stationaries()),
+          MaterialPageRoute(builder: (context) => Stationaries()),
         );
       }
       if(index==2){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => essentials()),
+          MaterialPageRoute(builder: (context) => Essentials()),
         );
       }
     });

@@ -127,7 +127,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       if (newUser != null) {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => register_shop()),
+                          MaterialPageRoute(builder: (context) => RegisterShop()),
                         );
                       }
                     } catch (e) {
