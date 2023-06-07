@@ -35,8 +35,8 @@ Home screen on logging in as shopkeeper shows all orders received and also has o
 
 ### Cart functionality
 
-<img src="https://github.com/mit-riya/kriti/assets/95142933/406fa866-794f-4972-9dd4-1d859b6b61e8" width="200" height="400">
-<img src="https://github.com/mit-riya/kriti/assets/95142933/bd234c2d-2026-4b7a-9a5c-4d037a09d9a5" width="200" height="400">
+<img src="https://github.com/mit-riya/kriti/assets/95142933/1b2143b1-91ae-47b5-a71c-8cb7737b02ab" width="200" height="400">
+<img src="https://github.com/mit-riya/kriti/assets/95142933/e70ff24e-cf3d-4afb-8c2b-6dc5f990d7d5" width="200" height="400">
 
 ### Payment portal and unique qr generation
 
