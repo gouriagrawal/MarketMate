@@ -20,8 +20,8 @@ MarketMate is a user friendly “Campus Catalogue application” that allows cam
 ## Features
 
 ### Login and shop registration
-<img src="github.com/mit-riya/kriti/assets/95142933/90500ca4-4cb1-484b-97a6-fd24b3a2fa87" width="48">
-![Screenshot_20230607_170325](https://github.com/mit-riya/kriti/assets/95142933/398732a4-1f33-4961-8c9d-4e0101a03a66)
+
+![Screenshot_20230607_170325](https://github.com/mit-riya/kriti/assets/95142933/398732a4-1f33-4961-8c9d-4e0101a03a66){: width="50%"}
   * Two separate login options for students and shopkeepers
   
 ### DIsplaying orders and edit menu options
