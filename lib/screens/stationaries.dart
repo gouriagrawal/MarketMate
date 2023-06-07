@@ -1,12 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:kriti/screens/restaurants.dart';
 import 'package:kriti/stationary_screens/shop_2.dart';
 import 'package:kriti/stationary_screens/shop_3.dart';
 import 'package:kriti/stationary_screens/shop_4.dart';
 import '../stationary_screens/shop_1.dart';
+import 'essentials.dart';
 
-class stationaries extends StatelessWidget {
+class stationaries extends StatefulWidget {
   const stationaries({Key? key}) : super(key: key);
 
+  @override
+  State<stationaries> createState() => _stationariesState();
+}
+
+class _stationariesState extends State<stationaries> {
+  int _selectedIndex=1;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      if(index==0){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => restaurants()),
+        );
+      }
+      if(index==1){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => stationaries()),
+        );
+      }
+      if(index==2){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => essentials()),
+        );
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,10 +50,10 @@ class stationaries extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListTile(
-                leading: const Icon(Icons.adf_scanner),
-                title: Text('Lecture Hall Stationary'),
-                tileColor: Colors.purple[200],
-                subtitle: Text( 'Status: open/closed' ),
+              leading: const Icon(Icons.adf_scanner),
+              title: Text('Lecture Hall Stationary'),
+              tileColor: Colors.purple[200],
+              subtitle: Text( 'Status: open/closed' ),
               onTap: () => {
                 Navigator.push(
                   context,
@@ -34,10 +65,10 @@ class stationaries extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListTile(
-                leading: const Icon(Icons.adf_scanner),
-                title: Text('Core 1 Stationary'),
-                tileColor: Colors.purple[200],
-                subtitle: Text( 'Status: open/closed' ),
+              leading: const Icon(Icons.adf_scanner),
+              title: Text('Core 1 Stationary'),
+              tileColor: Colors.purple[200],
+              subtitle: Text( 'Status: open/closed' ),
               onTap: () => {
                 Navigator.push(
                   context,
@@ -49,10 +80,10 @@ class stationaries extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListTile(
-                leading: const Icon(Icons.adf_scanner),
-                title: Text('Disang Stationary'),
-                tileColor: Colors.purple[200],
-                subtitle: Text( 'Status: open/closed' ),
+              leading: const Icon(Icons.adf_scanner),
+              title: Text('Disang Stationary'),
+              tileColor: Colors.purple[200],
+              subtitle: Text( 'Status: open/closed' ),
               onTap: () => {
                 Navigator.push(
                   context,
@@ -64,10 +95,10 @@ class stationaries extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListTile(
-                leading: const Icon(Icons.adf_scanner),
-                title: Text('Lohit Stationary'),
-                tileColor: Colors.purple[200],
-                subtitle: Text( 'Status: open/closed' ),
+              leading: const Icon(Icons.adf_scanner),
+              title: Text('Lohit Stationary'),
+              tileColor: Colors.purple[200],
+              subtitle: Text( 'Status: open/closed' ),
               onTap: () => {
                 Navigator.push(
                   context,
@@ -77,6 +108,25 @@ class stationaries extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.restaurant),
+            label: 'Restaurants',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.scanner),
+            label: 'Statioaries',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_laundry_service),
+            label: 'Essentials',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
     );
   }

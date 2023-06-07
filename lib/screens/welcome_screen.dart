@@ -1,12 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/services.dart';
 import 'package:kriti/screens/registration_screen.dart';
 import 'login_sreen.dart';
-// import 'package:remove_background/remove_background.dart';
-import 'dart:typed_data';
-import 'dart:ui' as ui;
 
 class WelcomeScreen extends StatefulWidget {
   static String id='welcome_screen';
@@ -15,29 +13,9 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-  bool isLoaded = false;
-  ui.Image? image;
-  ByteData? pngBytes;
-
-  @override
-
-  getUiImage() async {
-    ByteData data = await rootBundle.load('lib/assets/grocery-shopping.png');
-    image = await decodeImageFromList(data.buffer.asUint8List());
-    await getPNG();
-    setState(() {
-      isLoaded = true;
-    });
-  }
-
-  getPNG() async {
-    pngBytes = await image?.toByteData(format: ui.ImageByteFormat.png);
-  }
   void initState() {
     super.initState();
-    getUiImage();
     Firebase.initializeApp().whenComplete(() {
-      print("completed");
       setState(() {});
     });
   }
@@ -64,8 +42,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 AnimatedTextKit(
                   animatedTexts: [TyperAnimatedText('  MarketMate',textStyle: TextStyle(
-                    fontSize: 45.0,
-                    fontWeight: FontWeight.bold
+                      fontSize: 45.0,
+                      fontWeight: FontWeight.bold
                   ))],
                 ),
               ],
@@ -74,10 +52,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               height: 48.0,
             ),
             Container(
-              child:
-                isLoaded
-                    ? Image.memory(Uint8List.view(pngBytes!.buffer))
-                    : const Icon(Icons.image),
+              child: Image.asset(
+                  'lib/assets/grocery-shopping.png',
+                  width: 300,
+                  height: 150,
+              ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -112,7 +91,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   child: Text(
                     'Log In',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold
+                        fontWeight: FontWeight.bold
                     ),
                   ),
                 ),

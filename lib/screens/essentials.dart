@@ -1,9 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:kriti/screens/restaurants.dart';
+import 'package:kriti/screens/stationaries.dart';
 import 'package:url_launcher/url_launcher.dart'; //flutter pub add url_launcher
-
-class essentials extends StatelessWidget {
+class essentials extends StatefulWidget {
   const essentials({Key? key}) : super(key: key);
 
+  @override
+  State<essentials> createState() => _essentialsState();
+}
+
+class _essentialsState extends State<essentials> {
+  int _selectedIndex=2;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      if(index==0){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => restaurants()),
+        );
+      }
+      if(index==1){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => stationaries()),
+        );
+      }
+      if(index==2){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => essentials()),
+        );
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     _launchWhatsapp(var whatsapp) async {
@@ -94,6 +124,25 @@ class essentials extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.restaurant),
+            label: 'Restaurants',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.scanner),
+            label: 'Statioaries',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_laundry_service),
+            label: 'Essentials',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
     );
   }

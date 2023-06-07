@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:kriti/screens/restaurant.dart';
 import 'package:kriti/screens/restaurants.dart';
-import 'home_screen.dart';
+import 'package:kriti/screens/home_shopkeeper.dart';
 
 class LoginScreen extends StatefulWidget {
   static String id='login_screen';
@@ -19,6 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('MarketMate'),
+        backgroundColor: Colors.deepPurple,
       ),
       backgroundColor: Colors.white,
       body: Padding(
@@ -28,9 +28,8 @@ class _LoginScreenState extends State<LoginScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
-
-              height: 80.0,
-              // child: Image.asset('assets/images/logo.png'),
+              height: 320.0,
+              child: Image.asset('lib/assets/login.jpg'),
             ),
             TextField(
               keyboardType: TextInputType.emailAddress,
@@ -38,6 +37,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 email=value;
               },
               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.person),
+                filled: true,
+                fillColor: Colors.purple.shade100,
                 hintText: 'Enter your email',
                 contentPadding:
                 EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
@@ -65,6 +67,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 password=value;
               },
               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.lock),
+                filled: true,
+                fillColor: Colors.purple.shade100,
                 hintText: 'Enter your password.',
                 contentPadding:
                 EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
@@ -76,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   BorderSide(color: Colors.lightBlueAccent, width: 1.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
-                focusedBorder: OutlineInputBorder(
+                focusedBorder: const OutlineInputBorder(
                   borderSide:
                   BorderSide(color: Colors.lightBlueAccent, width: 2.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
@@ -89,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
-                color: Colors.lightBlueAccent,
+                color: Colors.purple[600],
                 borderRadius: BorderRadius.all(Radius.circular(30.0)),
                 elevation: 5.0,
                 child: MaterialButton(
@@ -98,7 +103,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       final user = await _auth.signInWithEmailAndPassword(
                           email: email, password: password);
                       if (user != null) {
-                        Navigator.pushNamed(context, HomeScreen.id);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => restaurants()),
+                        );
                       }
                     }catch(e){
                       print(e);
@@ -108,6 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 42.0,
                   child: Text(
                     'Log In As Student',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
@@ -115,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
-                color: Colors.lightBlueAccent,
+                color: Colors.purple[600],
                 borderRadius: BorderRadius.all(Radius.circular(30.0)),
                 elevation: 5.0,
                 child: MaterialButton(
@@ -126,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (user != null) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => RestaurantScreen()),
+                            MaterialPageRoute(builder: (context) => home_shop(text: email)),
                           );
                       }
                     }catch(e){
@@ -137,6 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 42.0,
                   child: Text(
                     'Log In as Owner',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),

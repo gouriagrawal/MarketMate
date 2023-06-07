@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kriti/screens/login_sreen.dart';
+import 'package:kriti/screens/shop_register.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static String id='registration_screen';
@@ -16,7 +17,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Campus Catalogue'),
+        title: Text('MarketMate'),
+        backgroundColor: Colors.deepPurple,
       ),
       backgroundColor: Colors.white,
       body: Padding(
@@ -26,8 +28,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
-              height: 200.0,
-              // child: Image.asset('assets/images/logo.png'),
+              height: 300.0,
+              child: Image.asset('lib/assets/login.jpg'),
             ),
             SizedBox(
               height: 48.0,
@@ -38,6 +40,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 email=value;
               },
               decoration: InputDecoration(
+                filled: true,
+                prefixIcon: Icon(Icons.person),
+                fillColor: Colors.purple.shade100,
                 hintText: 'Enter your email',
                 contentPadding:
                 EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
@@ -63,6 +68,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 password=value;
               },
               decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.purple.shade100,
+                prefixIcon: Icon(Icons.lock),
                 hintText: 'Enter your password',
                 contentPadding:
                 EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
@@ -85,7 +93,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
-                color: Colors.blueAccent,
+                color: Colors.purple[600],
                 borderRadius: BorderRadius.all(Radius.circular(30.0)),
                 elevation: 5.0,
                 child: MaterialButton(
@@ -99,10 +107,37 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       print(e);
                     }
                   },
+                  child: Text(
+                    'Register as student',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 16.0),
+              child: Material(
+                color: Colors.purple[600],
+                borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                elevation: 5.0,
+                child: MaterialButton(
+                  onPressed: () async{
+                    try {
+                      final newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+                      if (newUser != null) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => register_shop()),
+                        );
+                      }
+                    } catch (e) {
+                      print(e);
+                    }
+                  },
                   minWidth: 200.0,
                   height: 42.0,
                   child: Text(
-                    'Register',
+                    'Register as shopkeeper',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

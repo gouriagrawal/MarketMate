@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kriti/main.dart';
-import 'package:kriti/screens/qr_pg.dart';
+import 'package:kriti/screens/payment_gateway.dart';
 
 class CartScreen extends StatefulWidget {
   static String id='cart_screen';
+  final Map<String, int> item;
   CartScreen({Key? key,required this.item}) : super(key: key);
-  final Map<String, dynamic> item;
   @override
   State<CartScreen> createState() => _CartScreenState();
 }
@@ -14,6 +13,7 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    num count=0;
     num total=0;
     for (var k in (widget.item).values) {
       total=total+k;
@@ -30,39 +30,59 @@ class _CartScreenState extends State<CartScreen> {
               itemCount: (widget.item).length,
               itemBuilder:(BuildContext context, int index){
                 String key = (widget.item).keys.elementAt(index);
-                return new Column(
+                return Column(
                   children: <Widget>[
-                    new ListTile(
-                      title: new Text("$key"),
-                      subtitle: new Text("${(widget.item)[key]}"),
+                     ListTile(
+                       leading: CircleAvatar(
+                         backgroundColor: const Color(0xff6ae792),
+                         child: Icon(Icons.restaurant)
+                       ),
+                       title: Text(
+                         '${key}',
+                         style: TextStyle(
+                           fontSize: 20.0,
+                         ),
+                       ),
+                       subtitle: Text('${(widget.item)[key]}'),
+                       trailing: Icon(Icons.more_vert),
                     ),
                     new Divider(
-                      height: 2.0,
+                      height: 8.0,
+                      thickness: 2,
                     ),
                   ],
                 );
               }),
           SizedBox(
-            height: 8.0,
+            height: 28.0,
           ),
           Container(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Total price"),
-                Text("${total}"),
+                Text("Total price    ",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
+                ),
+                Text("${total}",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
+                ),
               ],
             ),
           ),
           SizedBox(
-            height: 8.0,
+            height: 20.0,
           ),
           ElevatedButton(
             onPressed: ()
             {
+              (widget.item).clear();
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => QR()),
+                MaterialPageRoute(builder: (context) => payment(total: total)),
               );
             },
             child: Text("Place Order"),
